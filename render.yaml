@@ -1,0 +1,14 @@
+services:
+  - type: static
+    name: student-survey
+    buildCommand: "echo 'Static site - no build needed'"
+    staticPublishPath: ./
+    routes:
+      - path: /
+        methods:
+          - GET
+        missingRoutePolicy: serve_index_page
+      - path: /*
+        methods:
+          - GET
+        missingRoutePolicy: serve_404_page
